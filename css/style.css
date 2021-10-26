@@ -1,0 +1,942 @@
+/* &display=swap&subset=cyrillic-ext */
+
+
+/* ОБНУЛЕНИЕ СТИЛЕЙ */
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    box-sizing: border-box;
+}
+
+li {
+    list-style: none;
+}
+
+a,
+a:visited {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: inherit;
+    font-size: inherit;
+}
+
+img {
+    vertical-align: top;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+html {
+    font-size: 16px;
+    /* по умолчанию */
+}
+
+body {
+    line-height: 1;
+    overflow-x: hidden;
+}
+
+.wrapper {
+    min-height: 100%;
+}
+
+[class*="__container"] {
+    max-width: 800px;
+    margin: 0px auto;
+}
+
+
+/* ------------GLOBAL------------------ */
+
+body {
+    box-shadow: inset 0 0 300px 400px #000;
+    animation: shadow 1.5s ease 1s forwards;
+}
+
+@keyframes shadow {
+    0% {
+        box-shadow: inset 0 0 300px 400px #000;
+    }
+    100% {
+        box-shadow: inset 0 0 0 0 #000;
+    }
+}
+
+
+/* --------------WHEEL---------------- */
+
+.wheel {
+    background: #1a1717;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    box-shadow: inset 0 0 8px 8px #3b3838;
+    overflow: hidden;
+    position: relative;
+    font-size: 0;
+    transform: scale(0) rotate(0deg);
+    animation: wheel-appearence .7s ease 6.7s forwards, rotate 1s cubic-bezier(0.895, 0.03, 0.685, 0.22) 13s forwards, wheel-move .2s linear infinite 14s;
+}
+
+@keyframes wheel-appearence {
+    0% {
+        transform: scale(0) rotate(0deg);
+    }
+    80% {
+        transform: scale(1) rotate(-3600deg);
+    }
+    100% {
+        transform: scale(1) rotate(-3960deg);
+    }
+}
+
+@keyframes rotate {
+    0% {
+        transform: scale(1) rotate(-3960deg);
+    }
+    100% {
+        transform: scale(1) rotate(-3870deg);
+    }
+}
+
+@keyframes wheel-move {
+    0% {
+        transform: scale(1) rotate(-3870deg);
+    }
+    100% {
+        transform: scale(1) rotate(-3780deg);
+    }
+}
+
+.wheel__dent {
+    width: 100px;
+    height: 100px;
+    background: #3b3838;
+    border-radius: 60% 40% 40% 60% / 30% 50% 50% 70%;
+    position: absolute;
+}
+
+.wheel__dent_left {
+    top: 50%;
+    transform: translate(-50%, -50%)
+}
+
+.wheel__dent_top {
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(90deg);
+}
+
+.wheel__dent_right {
+    left: 100%;
+    top: 50%;
+    transform: translate(-50%, -50%) rotate(180deg);
+}
+
+.wheel__dent_bottom {
+    left: 50%;
+    top: 100%;
+    transform: translate(-50%, -50%) rotate(270deg);
+}
+
+.wheel__center,
+.wheel__disc,
+.wheel__spoke {
+    height: 100px;
+    width: 100px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+}
+
+.wheel__center {
+    background-color: #fff;
+    box-shadow: 0 0 8px 8px #3b3838;
+}
+
+.wheel__disc {
+    border: 10px solid #808080;
+    box-shadow: inset 0 0 50px 10px #000;
+}
+
+.wheel__spoke {
+    width: 10px;
+    background: #808080;
+    border-radius: 0;
+}
+
+.wheel__spoke_horizontal {
+    transform: translate(-50%, -50%) rotate(90deg);
+}
+
+.wheel__spoke_tilted-right {
+    transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.wheel__spoke_tilted-left {
+    transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+.wheel__spoke::after {
+    content: '';
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    background-color: #000;
+    border-radius: 50%;
+    left: 50%;
+    transform: translate(-50%, 50%);
+}
+
+.wheel__spoke::before {
+    content: '';
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    background-color: #000;
+    border-radius: 50%;
+    top: 100%;
+    left: 50%;
+    transform: translate(-50%, -150%);
+}
+
+
+/* -----------CAR------------ */
+
+.car {
+    position: relative;
+    left: 0;
+    animation: move1 4s linear 14s forwards, moving .1s linear 18s forwards, move2 8s linear infinite 18.1s;
+}
+
+.car__content {
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, 200%);
+    transform-style: preserve-3d;
+}
+
+@keyframes move1 {
+    0% {
+        left: 0;
+    }
+    100% {
+        left: 1600px;
+    }
+}
+
+@keyframes moving {
+    0% {
+        left: 1600px;
+        opacity: 0;
+    }
+    99% {
+        opacity: 0;
+    }
+    100% {
+        left: -1600px;
+        opacity: 1;
+    }
+}
+
+@keyframes move2 {
+    0% {
+        left: -1600px;
+    }
+    100% {
+        left: 1600px;
+    }
+}
+
+
+/* -------------FRAME---------------- */
+
+.frame {
+    width: 1000px;
+    height: 200px;
+}
+
+.frame__car {
+    position: relative;
+    animation: starts-up .1s ease-in-out 10s, shaking .2s ease infinite 11s;
+}
+
+@keyframes starts-up {
+    0% {
+        bottom: 0;
+    }
+    50% {
+        bottom: 10px;
+    }
+    100% {
+        bottom: 0;
+    }
+}
+
+@keyframes shaking {
+    0% {
+        bottom: 0;
+    }
+    25% {
+        bottom: 5px;
+    }
+    50% {
+        bottom: 10px;
+    }
+    75% {
+        bottom: 5px;
+    }
+    100% {
+        bottom: 0;
+    }
+}
+
+.frame__body {
+    overflow: hidden;
+    height: 205px;
+    position: relative;
+    top: -700px;
+    animation: frame-down .8s ease-in 2.5s forwards, overflow-visible .3s ease 7.1s forwards;
+}
+
+@keyframes frame-down {
+    0% {
+        top: -700px;
+    }
+    100% {
+        top: 0;
+    }
+}
+
+@keyframes overflow-visible {
+    0% {
+        overflow: hidden;
+    }
+    100% {
+        overflow: visible;
+    }
+}
+
+.frame__back-part,
+.frame__center-part,
+.frame__front-part {
+    position: absolute;
+    height: 200px;
+    background-color: #ff00f0;
+    border: 10px solid #d300b7;
+    border-bottom: 20px solid #d300b7;
+    top: 0;
+}
+
+.frame__back-part {
+    border-radius: 100% 0% 80% 20% / 0% 100% 0% 100%;
+    width: 420px;
+    border-right: none;
+}
+
+.frame__center-part {
+    width: 500px;
+    left: 40%;
+    border-right: none;
+    border-left: none;
+}
+
+.frame__front-part {
+    border-radius: 70% 30% 5% 95% / 100% 82% 18% 0%;
+    width: 320px;
+    right: 0;
+}
+
+.frame__wheel-hole {
+    width: 300px;
+    height: 300px;
+    background-color: #fff;
+    position: absolute;
+    border-radius: 50%;
+    box-shadow: inset 0 0 0 0 #000;
+    border: 5px solid #d300b7;
+    z-index: 5;
+    animation: border-disappear .1s ease 4s forwards, shadow-appearence .3s ease 7.1s forwards;
+}
+
+@keyframes border-disappear {
+    0% {
+        border: 5px solid #d300b7;
+    }
+    100% {
+        border: 0 solid rgba(211, 0, 183, 0);
+    }
+}
+
+@keyframes shadow-appearence {
+    0% {
+        box-shadow: inset 0 0px 0 0 #000;
+    }
+    100% {
+        box-shadow: inset 0 10px 50px 30px #000;
+    }
+}
+
+.frame__wheel-hole_back {
+    top: 55%;
+    left: 5%;
+}
+
+.frame__wheel-hole_front {
+    top: 55%;
+    right: 5%;
+}
+
+.frame__door-hole {
+    border-radius: 100% 0% 45% 55% / 0% 100% 0% 100%;
+    position: absolute;
+    width: 280px;
+    height: 200px;
+    border: 10px solid #d300b7;
+    border-top: none;
+    top: 0;
+    left: 350px;
+    background-color: #fff;
+}
+
+.frame__fender {
+    width: 320px;
+    height: 200px;
+    border-radius: 50% 50% 50% 50% / 75% 75% 25% 25%;
+    background-color: #808080;
+    border: 5px solid #555555;
+    position: absolute;
+    z-index: 4;
+    opacity: 0;
+    animation: fender-appearence .5s ease 4s forwards;
+}
+
+@keyframes fender-appearence {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.frame__fender_back {
+    top: 40%;
+    left: 4%;
+}
+
+.frame__fender_front {
+    top: 40%;
+    right: 4%;
+}
+
+.frame__fender-hole {
+    width: 300px;
+    height: 300px;
+    background-color: #fff;
+    position: absolute;
+    border-radius: 50%;
+    z-index: 5;
+    left: 50%;
+    transform: translate(-50%, 0);
+    top: 15%;
+}
+
+.frame__wheel {
+    position: absolute;
+    z-index: 6;
+}
+
+.frame__wheel_back {
+    top: 65%;
+    left: 5%;
+}
+
+.frame__wheel_front {
+    top: 65%;
+    right: 5%;
+}
+
+.frame__headlight {
+    position: absolute;
+}
+
+.frame__headlight_front {
+    top: -20px;
+    right: -700px;
+    animation: headlight-to-left .4s ease-in 5.55s forwards;
+}
+
+@keyframes headlight-to-left {
+    0% {
+        right: -700px;
+    }
+    100% {
+        right: 100px;
+    }
+}
+
+@keyframes light {
+    0% {
+        right: -700px;
+    }
+    100% {
+        right: 100px;
+    }
+}
+
+.frame__headlight-back {
+    position: absolute;
+    top: -20px;
+    left: -800px;
+    z-index: 5;
+    animation: headlight-to-right .4s ease-in 4.55s forwards;
+}
+
+@keyframes headlight-to-right {
+    0% {
+        left: -800px;
+    }
+    100% {
+        left: 30px;
+    }
+}
+
+.frame__bumper {
+    position: absolute;
+    right: -500px;
+    top: 20px;
+    animation: bumper-to-left .5s ease-in 3.4s forwards;
+}
+
+@keyframes bumper-to-left {
+    0% {
+        right: -500px;
+    }
+    100% {
+        right: 10%;
+    }
+}
+
+.frame__bumper-back {
+    border-radius: 19% 81% 84% 16% / 50% 100% 0% 50%;
+    height: 80px;
+    width: 180px;
+    background-color: #808080;
+    position: absolute;
+    left: -600px;
+    bottom: 0;
+    box-shadow: inset 0 0 3px 3px #555555;
+    animation: bumper-to-right .5s ease-in 3.4s forwards;
+}
+
+@keyframes bumper-to-right {
+    0% {
+        left: -600px;
+    }
+    100% {
+        left: 0;
+    }
+}
+
+.frame__windshield {
+    position: absolute;
+    top: 0px;
+    right: 320px;
+    transform: skew(30deg);
+    height: 1px;
+    width: 30px;
+    background-color: #87ceeb;
+    border: 3px solid #483d8b;
+    border-radius: 0 10px 0 0;
+    opacity: 0;
+    animation: windshield-up .5s ease-in 6.1s forwards;
+}
+
+@keyframes windshield-up {
+    0% {
+        opacity: 0;
+        height: 1px;
+        top: 0px;
+        right: 320px;
+    }
+    100% {
+        opacity: 1;
+        height: 150px;
+        top: -150px;
+        right: 370px;
+    }
+}
+
+.frame__roof {
+    position: absolute;
+    top: -30px;
+    left: 120px;
+}
+
+.frame__door {
+    border-radius: 100% 0% 45% 55% / 0% 100% 0% 100%;
+    position: absolute;
+    width: 280px;
+    height: 200px;
+    background: #ff00f0;
+    border: 10px solid #d300b7;
+    top: 0;
+    left: 350px;
+    transform: scale(0) rotate(0deg);
+    animation: door-appearence .5s ease 5s forwards;
+}
+
+@keyframes door-appearence {
+    0% {
+        transform: scale(0) rotate(0deg);
+    }
+    100% {
+        transform: scale(1) rotate(1440deg);
+    }
+}
+
+.frame__door::after {
+    content: '';
+    width: 40px;
+    height: 10px;
+    position: absolute;
+    left: 30px;
+    top: 20px;
+    background-color: #d300b7;
+    z-index: 4;
+    border-radius: 5px;
+}
+
+
+/* -------------BUMPER--------------- */
+
+.bumper__body {
+    height: 160px;
+    width: 100px;
+    background: #d3d3d3;
+    border: 5px solid #808080;
+    transform: skew(15deg);
+    position: absolute;
+    border-radius: 0 30px 0 0;
+}
+
+.bumper__line {
+    width: 77%;
+    height: 10px;
+    background: #808080;
+    position: absolute;
+    left: 23%;
+    top: 12%;
+    transform: skew(15deg);
+}
+
+.bumper__line_second {
+    top: 20%;
+    left: 24%;
+}
+
+.bumper__line_third {
+    top: 28%;
+    left: 27%;
+}
+
+.bumper__item {
+    height: 80px;
+    width: 130px;
+    background-color: #808080;
+    position: absolute;
+    bottom: -30px;
+    right: -20px;
+    border-radius: 30px;
+}
+
+
+/* --------------ROOF------------------- */
+
+.roof__item {
+    width: 200px;
+    background-color: #a52a2a;
+    border: 5px solid #580a0a;
+    transform: rotate(10deg) skew(-40deg);
+    position: absolute;
+    border-radius: 10px 0 0 0;
+}
+
+.roof__item_bottom {
+    animation: roof__item-appearence .4s ease 7.4s forwards, roof__item_bottom-appearence .4s ease 7.4s forwards, roof__item_bottom-up .4s ease-in 8.8s forwards;
+    opacity: 0;
+    top: 30px;
+}
+
+@keyframes roof__item-appearence {
+    0% {
+        opacity: 0;
+        height: 0;
+    }
+    1% {
+        opacity: 1;
+    }
+    100% {
+        height: 30px;
+        opacity: 1;
+    }
+}
+
+@keyframes roof__item_bottom-appearence {
+    0% {
+        top: 30px;
+    }
+    100% {
+        top: 0;
+    }
+}
+
+@keyframes roof__item_bottom-up {
+    0% {
+        transform: rotate(10deg) skew(-40deg);
+        height: 30px;
+        top: 0;
+    }
+    100% {
+        transform: rotate(0) skew(-10deg);
+        height: 80px;
+        top: -60px;
+        left: 18px;
+        border-radius: 0;
+    }
+}
+
+.roof__item_central {
+    top: 10px;
+    left: 15px;
+    opacity: 0;
+    animation: roof__item-appearence .4s ease 7.8s forwards, roof__item_central-appearence .4s ease 7.8s forwards, roof__item_central-deformation .4s ease-in 8.8s forwards, roof__item_central-up .4s ease-in 9.2s forwards;
+}
+
+.frame:hover .roof__item_central {
+    transform: rotate(0) skew(-30deg);
+    height: 70px;
+    top: -125px;
+    left: 42px;
+    border-radius: 0;
+}
+
+@keyframes roof__item_central-appearence {
+    0% {
+        top: 10px;
+    }
+    100% {
+        top: -20px;
+    }
+}
+
+@keyframes roof__item_central-deformation {
+    0% {
+        top: -20px;
+        left: 15px;
+        transform: rotate(10deg) skew(-40deg);
+    }
+    100% {
+        top: -85px;
+        left: 35px;
+        transform: rotate(0) skew(-40deg);
+    }
+}
+
+@keyframes roof__item_central-up {
+    0% {
+        transform: rotate(0) skew(-40deg);
+    }
+    100% {
+        transform: rotate(0) skew(-30deg);
+        height: 70px;
+        top: -125px;
+        left: 42px;
+        border-radius: 0;
+    }
+}
+
+.roof__item_top {
+    top: -10px;
+    left: 30px;
+    opacity: 0;
+    transform: rotate(12deg) skew(-40deg);
+    animation: roof__item-appearence .4s ease 8.2s forwards, roof__item_top-appearence .4s ease 8.2s forwards, roof__item_top-deformation1 .4s ease-in 8.8s forwards, roof__item_top-deformation2 .4s ease-in 9.2s forwards, roof__item_top-up .4s ease-in 9.6s forwards;
+    ;
+}
+
+@keyframes roof__item_top-appearence {
+    0% {
+        top: -10px;
+    }
+    100% {
+        top: -40px;
+    }
+}
+
+@keyframes roof__item_top-deformation1 {
+    0% {
+        top: -40px;
+        left: 30px;
+        transform: rotate(12deg) skew(-40deg);
+    }
+    100% {
+        top: -110px;
+        left: 55px;
+        transform: rotate(0) skew(-40deg);
+    }
+}
+
+@keyframes roof__item_top-deformation2 {
+    0% {
+        top: -110px;
+        left: 55px;
+    }
+    100% {
+        top: -150px;
+        left: 70px;
+    }
+}
+
+@keyframes roof__item_top-up {
+    0% {
+        transform: rotate(0) skew(-40deg);
+    }
+    100% {
+        top: -150px;
+        left: 60px;
+        width: 400px;
+        transform: rotate(0) skew(0);
+        border-radius: 100px 100px 0 0;
+    }
+}
+
+
+/* --------------HEADLIGHT----------------- */
+
+.headlight__body {
+    border-radius: 90% 10% 10% 90% / 50% 50% 50% 50%;
+    height: 50px;
+    width: 200px;
+    background: #ff00f0;
+    border: 5px solid #d300b7;
+    position: relative;
+    transform: scale(1.5);
+    z-index: 5;
+}
+
+.headlight__item {
+    font-size: 0;
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    transform: scale(1.1);
+}
+
+.headlight__back {
+    height: 50px;
+    width: 10px;
+    background-color: #add8e6;
+    border: 3px solid #87cefa;
+    display: inline-block;
+    position: absolute;
+    left: 700px;
+    top: -2px;
+    animation: headlight__back-to-left .45s ease-in 5.55s forwards;
+}
+
+@keyframes headlight__back-to-left {
+    0% {
+        left: 700px;
+    }
+    100% {
+        left: -26px;
+    }
+}
+
+.headlight__front {
+    border-radius: 0% 100% 100% 0% / 50% 50% 50% 50%;
+    background-color: #ffff00;
+    height: 50px;
+    width: 20px;
+    border: 3px solid #b8860b;
+    position: absolute;
+    left: 700px;
+    top: -2px;
+    animation: headlight__front-to-left .5s ease-in 5.55s forwards, light .5s ease 11s forwards;
+}
+
+@keyframes headlight__front-to-left {
+    0% {
+        left: 700px;
+    }
+    100% {
+        left: -16px;
+    }
+}
+
+@keyframes light {
+    0% {
+        box-shadow: 0 0 0 0 #ffff00;
+    }
+    100% {
+        box-shadow: 25px 0 15px 15px #ffff00;
+    }
+}
+
+.back-headlight__body {
+    background: #ff00f0;
+    border: 5px solid #d300b7;
+    position: absolute;
+    height: 50px;
+    width: 250px;
+    border-radius: 75% 25% 25% 75% / 0% 50% 50% 100%;
+    transform: scale(1.5);
+}
+
+.back-headlight__item {
+    height: 50px;
+    width: 30px;
+    background-color: #ff0000;
+    border: 3px solid #8b0000;
+    border-radius: 15% 85% 15% 85% / 10% 90% 10% 90%;
+    position: absolute;
+    top: -12px;
+    left: 2px;
+    transform: scale(1.2) rotate(-40deg);
+    animation: headlight__item-to-right .4s ease-in 4.6s forwards;
+}
+
+@keyframes headlight__item-to-right {
+    0% {
+        left: -800px;
+    }
+    100% {
+        left: 2px;
+    }
+}
+
+.back-headlight__item:hover {
+    box-shadow: -10px -5px 15px 5px #ff0000;
+}
